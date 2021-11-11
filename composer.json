@@ -1,0 +1,45 @@
+{
+  "name": "noxkiwi/database",
+  "description": "Simple, configuration based Database Access.",
+  "version": "1.0.1",
+  "type": "package",
+  "license": "proprietary",
+  "keywords": [
+    "Database",
+    "MySQL",
+    "PgSQL",
+    "SQLite",
+    "PDO"
+  ],
+  "homepage": "https://nox.kiwi/",
+  "time": "2021-05-28",
+  "authors": [
+    {
+      "name": "Jan Nox",
+      "email": "jan.nox@pm.me",
+      "homepage": "https://nox.kiwi",
+      "role": "Lead Developer"
+    }
+  ],
+  "require": {
+    "php": ">=8.0.5",
+    "noxkiwi/core": "*",
+    "noxkiwi/singleton": "*",
+    "noxkiwi/log": "*",
+    "noxkiwi/hook": "*",
+    "ext-pdo": "*"
+  },
+  "suggest": {
+    "ext-pdo_pgsql": "*",
+    "ext-pdo_mysql": "*",
+    "ext-pdo_sqlite": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7"
+  },
+  "autoload": {
+    "psr-4": {
+      "noxkiwi\\database\\": "backend/class/"
+    }
+  }
+}
