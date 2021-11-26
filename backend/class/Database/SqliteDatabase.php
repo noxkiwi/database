@@ -9,6 +9,7 @@ use noxkiwi\database\Exception\DatabaseException;
 use PDO;
 use PDOException;
 use PDOStatement;
+use function compact;
 use function extension_loaded;
 use const E_ERROR;
 
