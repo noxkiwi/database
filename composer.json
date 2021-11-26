@@ -3,7 +3,7 @@
   "description": "Simple, configuration based Database Access.",
   "version": "1.0.1",
   "type": "package",
-  "license": "proprietary",
+  "license": "GPL-3.0-or-later",
   "keywords": [
     "Database",
     "MySQL",
@@ -23,10 +23,10 @@
   ],
   "require": {
     "php": ">=8.0.5",
-    "noxkiwi/core": "*",
-    "noxkiwi/singleton": "*",
-    "noxkiwi/log": "*",
-    "noxkiwi/hook": "*",
+    "noxkiwi/core": "dev-master",
+    "noxkiwi/singleton": "dev-master",
+    "noxkiwi/log": "dev-master",
+    "noxkiwi/hook": "dev-master",
     "ext-pdo": "*"
   },
   "suggest": {

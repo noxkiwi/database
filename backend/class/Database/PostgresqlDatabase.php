@@ -4,6 +4,7 @@ namespace noxkiwi\database\Database;
 use noxkiwi\core\Exception\SystemComponentException;
 use noxkiwi\database\Database;
 use function extension_loaded;
+use const E_ERROR;
 
 /**
  * I am the postgreSQL Database Class.
