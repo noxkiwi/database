@@ -164,6 +164,9 @@ abstract class Database extends Singleton implements DatabaseInterface, Observab
      */
     public function beginTransaction(): void
     {
+        if ($this->connection->inTransaction()) {
+            throw new DatabaseException('Already inside transaction!', E_ERROR);
+        }
         $this->connection->beginTransaction();
     }
 
@@ -172,6 +175,9 @@ abstract class Database extends Singleton implements DatabaseInterface, Observab
      */
     public function commit(): void
     {
+        if (! $this->connection->inTransaction()) {
+            throw new DatabaseException('No transaction has been started', E_ERROR);
+        }
         $this->connection->commit();
     }
 
@@ -180,6 +186,9 @@ abstract class Database extends Singleton implements DatabaseInterface, Observab
      */
     public function rollback(): void
     {
+        if (! $this->connection->inTransaction()) {
+            throw new DatabaseException('No transaction has been started', E_ERROR);
+        }
         $this->connection->rollBack();
     }
 
