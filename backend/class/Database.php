@@ -96,10 +96,6 @@ abstract class Database extends Singleton implements DatabaseInterface, Observab
      */
     final public function getResult(): array
     {
-        if ($this->statement === null) {
-            return [];
-        }
-
         return $this->statement->fetchAll();
     }
 
@@ -164,6 +160,9 @@ abstract class Database extends Singleton implements DatabaseInterface, Observab
      */
     public function beginTransaction(): void
     {
+        if ($this->connection->inTransaction()) {
+            return;
+        }
         $this->connection->beginTransaction();
     }
 
@@ -172,6 +171,9 @@ abstract class Database extends Singleton implements DatabaseInterface, Observab
      */
     public function commit(): void
     {
+        if (! $this->connection->inTransaction()) {
+            return;
+        }
         $this->connection->commit();
     }
 
@@ -180,6 +182,9 @@ abstract class Database extends Singleton implements DatabaseInterface, Observab
      */
     public function rollback(): void
     {
+        if (! $this->connection->inTransaction()) {
+            return;
+        }
         $this->connection->rollBack();
     }
 
