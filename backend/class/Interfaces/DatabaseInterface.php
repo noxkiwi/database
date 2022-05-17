@@ -46,11 +46,15 @@ interface DatabaseInterface
 
     /**
      * I will begin a transaction.
+     *
+     * @throws \noxkiwi\database\Exception\DatabaseException In case a transaction has already been started.
      */
     public function beginTransaction(): void;
 
     /**
      * I will commit a transaction.
+     *
+     * @throws \noxkiwi\database\Exception\DatabaseException In case no transaction was started prior.
      */
     public function commit(): void;
 
